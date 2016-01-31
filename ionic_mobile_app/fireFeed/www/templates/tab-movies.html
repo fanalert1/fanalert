@@ -1,0 +1,19 @@
+<ion-view view-title="Movies">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="movie in movies" type="item-text-wrap" href="#/tab/movies/{{movie._id}}">
+       <!-- <img ng-src="{{chat.face}}"> -->
+        <h2>{{movie.name}}</h2>
+        <p>Language: {{movie.lang}}</p>
+        <p>Status: {{movie.type}}</p>
+        <button class="button button-outline button-small button-positive">
+        {{movie.release_ts}}
+        </button>
+        
+        
+
+       
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -13,7 +13,9 @@ $crawler = $client->request('GET', 'http://www.ticketnew.com/Movie-Ticket-Online
 
 $upcoming_movies_list=array();
 $upcoming_movies_links=array();
+$active_movies=array();
 $key="";
+$i=0;
 //Crawler to get the upcoming movies details from ticket new website
 $crawler->filter('div[id$="overlay-tab-coming-soon"]')->each(function (Crawler $node, $i) {
              
@@ -69,6 +71,8 @@ foreach($upcoming_movies_list as $key=>$values)
         {
             $cast_crew=array();
             $movie_name=$value; // sets movie name
+            $active_movies[$i]=$movie_name;
+            $i +=1;
             $temp_name=str_replace(" ","-",$movie_name); //temporary variable to get the link of the movie from the array
             foreach($upcoming_movies_links as $link) 
             {
@@ -250,6 +254,8 @@ foreach($running_movies_list as $key=>$values)
         {
             $cast_crew=array();
             $movie_name=$value; // sets movie name
+            $active_movies[$i]=$movie_name;
+            $i +=1;
             $temp_name=str_replace(" ","-",$movie_name); //temporary variable to get the link of the movie from the array
             foreach($running_movies_links as $link) 
             {

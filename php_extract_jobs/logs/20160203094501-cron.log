@@ -1,0 +1,18 @@
+PHP Warning:  Module 'mongodb' already loaded in Unknown on line 0
+
+Warning: Module 'mongodb' already loaded in Unknown on line 0
+PHP Fatal error:  Uncaught exception 'GuzzleHttp\Exception\ConnectException' with message 'cURL error 7: Failed to connect to www.ticketnew.com port 80: Connection timed out (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)' in /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:186
+Stack trace:
+#0 /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(150): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(103): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(43): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\ in /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 186
+
+Fatal error: Uncaught exception 'GuzzleHttp\Exception\ConnectException' with message 'cURL error 7: Failed to connect to www.ticketnew.com port 80: Connection timed out (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)' in /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 186
+
+GuzzleHttp\Exception\ConnectException: cURL error 7: Failed to connect to www.ticketnew.com port 80: Connection timed out (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /home/ubuntu/workspace/php_extract_jobs/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 186
+
+Call Stack:
+    0.0017     298304   1. {main}() /home/ubuntu/workspace/php_extract_jobs/test.php:0
+    0.0698    1149624   2. Symfony\Component\BrowserKit\Client->request() /home/ubuntu/workspace/php_extract_jobs/test.php:12
+    0.0717    1165896   3. Goutte\Client->doRequest() /home/ubuntu/workspace/php_extract_jobs/vendor/symfony/browser-kit/Client.php:317
+

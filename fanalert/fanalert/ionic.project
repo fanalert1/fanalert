@@ -1,0 +1,12 @@
+{
+  "name": "fanalert",
+  "app_id": "e8dbbb8a",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

@@ -81,6 +81,15 @@ router.get('/movies/upcoming',function(req, res) {
         });
         
     });
+    
+    
+router.post('/register', function(req, res){
+    device_token = req.body.device_token;
+    console.log('device token received');
+    console.log(device_token);
+    /*YOUR TODO: save the device_token into your database*/
+    res.send('ok');
+});
 
 
 // REGISTER OUR ROUTES -------------------------------

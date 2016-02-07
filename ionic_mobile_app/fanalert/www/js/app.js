@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic','ionic.service.core', 'ionic-material']);
+var app = angular.module('starter', ['ionic','ionic.service.core', 'ionic-material', 'starter.services']);
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -16,6 +16,8 @@ app.run(function ($ionicPlatform) {
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
+           
+           /*
             Ionic.io();
             var push = new Ionic.Push({
               "debug": true
@@ -24,7 +26,47 @@ app.run(function ($ionicPlatform) {
             push.register(function(token) {
               console.log("Device token:",token.token);
             });
+        */
         
+         //push code
+           RequestService.hello();
+            
+            var io = Ionic.io();
+            var push = new Ionic.Push({
+              "onNotification": function(notification) {
+                alert('Received push notification!');
+              },
+              "pluginConfig": {
+                "android": {
+                  "iconColor": "#0000FF"
+                }
+              }
+            });
+            var user = Ionic.User.current();
+            
+            if (!user.id) {
+              user.id = Ionic.User.anonymousId();
+            }
+            
+            // Just add some dummy data..
+            user.set('name', 'Bala');
+            user.set('bio', 'This is Bala');
+            user.save();
+           
+            var callback = function(data) {
+              push.addTokenToUser(user);
+              user.save();
+             // device_token=data.token;
+              console.log("Device token:",data.token);
+            
+          //  RequestsService.register(data.token).then(function(response){
+            //        alert('registered!');
+             //    });
+            };
+            push.register(callback);
+
+            //ends push code
+
         
     });
 })

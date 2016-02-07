@@ -1,0 +1,105 @@
+<!-- Chat Screen - Refer to _chat.scss -->
+<ion-view view-title="{{title}}" hide-nav-bar="true" class="rubyonic-pane chat-screen">
+  <!-- Custom Header:
+  We did this so we could have a custom bar without 
+  altering ionic's state/history management.
+  Use with 'hide-nav-bar="true"' attribute at line 1: -->
+  <div class="bar bar-ruby-header bar-transparent">
+
+      <button class="button ruby-button-clear icon ion-navicon brand-base-text-color" menu-toggle="left">
+        <span class="new-notification-bubble"></span>
+      </button>
+
+      <h1 class="title brand-base-text-color">{{title}}</h1>
+
+      <button class="button ruby-button-clear icon ion-android-notifications brand-base-text-color" menu-toggle="right">
+
+  </div>
+  <!-- End Custom navbar -->
+  <ion-content class="has-header">
+
+  <div class="padding ruby">
+  	
+    	<div class="list list-inset form-rb">
+          <label class="item item-input ruby-search-box">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Search Movies">
+          </label>
+      </div>
+
+
+ <!-- 	<div class="list chat-list" ng-controller="MovieCtrl"> -->
+
+ <div class="list" ng-controller="MovieCtrl">
+
+      <!-- <a class="item item-avatar busy" -->
+
+            <a class="item" href="#" ng-repeat="movie in movies">
+
+            
+
+              <img src="{{movie.poster_url}}" style="float: left; position: static; margin-right: 15px; max-height: 120px;" ng-href="{{movie.link}}" >
+
+
+              <h3 class="notification-title">{{movie.name}}</h3>
+                
+                <p>{{movie.lang}} - Releasing on {{movie.release_ts | date:'MM/dd/yyyy'}}</p>
+                <!-- <p>Status: {{movie.type}}</p> -->
+                <p ng-if="movie.type=='running'"> BOOKING OPEN </p>
+                <p ng-if="movie.type=='upcoming'"> YET TO RELEASE</p>
+                
+                
+                <!--<button class="button"> Click here </button> -->
+          
+        
+                <p>{{movie.update_ts | date:'MM/dd/yyyy hh:mm:ss' }}</p>
+                <button class="button button-small"  ng-click="go('{{movie.link}}')">
+                  Book Now
+                 </button>
+
+
+            
+            </a>
+
+
+
+
+
+
+
+          <!--
+            <a class="item item-avatar online" ng-click="go('app.chat-ui')">
+              <img src="img/demo/profile-image.jpg" class="notification-thumb">
+              <h3 class="notification-title">Tracy Melfin</h3>
+              <p class="notification-summary">“nom nom nom......nom!”</p>
+            </a>
+
+          -->
+
+            
+
+    </div>
+
+  </div>
+
+
+
+  </ion-content>
+
+  <nav class="tabs tabs-icon-bottom chat-footer-controls">
+      <a class="tab-item tab-item-active" href="#">
+        <i class="icon ion-ionic"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-locked"></i>
+      </a>
+      <a class="tab-item has-badge">
+        <i class="badge">3</i>
+        <i class="icon ion-leaf"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-waterdrop"></i>
+      </a>
+    </nav>
+
+</ion-view>

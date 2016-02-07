@@ -1,0 +1,48 @@
+<ion-view view-title="{{title}}">
+  <ion-content>
+      <label class="item item-input item-floating-label">
+      <span class="input-label">Displaying Results for</span>
+      <input type="text" placeholder="Enter Movie Name or Language" ng-model="searchText">
+      </label>
+      
+    <ion-list>
+      
+      <!--item-avatar in the middle of class attribute -->
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="movie in movies | filter:searchText" type="item-text-wrap" href="#/tab/movies/{{movie._id}}">
+        <img src="{{movie.poster_url}}" style="float: left; position: static; margin-right: 15px; max-height: 140px;">
+        
+        
+          
+        <h2>{{movie.name}}</h2>
+        <p>Lang: {{movie.lang}}</p>
+        <!-- <p>Status: {{movie.type}}</p> -->
+        <p ng-if="movie.type=='running'"> BOOKING OPEN </p>
+        <p ng-if="movie.type=='upcoming'"> YET TO RELEASE</p>
+        
+        
+        <p> Releasing on {{movie.release_ts | date:'MM/dd/yyyy'}} </p>
+          
+        <!-- <button class="button button-small button-positive"> TEST</button>
+       <a ng-href="{{movie.link}}"> 
+       
+       top -- right -- bottom -- left
+       -->
+        
+        <a class="button button-small button-positive" href="{{movie.link}}" style="padding: 5px 35px 25px 35px">Book Now</a>
+          
+          
+        
+        <p>{{movie.update_ts | date:'MM/dd/yyyy hh:mm:ss' }}</p>
+        
+        <hr style="border: 0;
+                   height: 0;
+                   border-top: 1px solid rgba(0, 0, 0, 0.1);
+                 "/>
+        
+        
+
+       
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

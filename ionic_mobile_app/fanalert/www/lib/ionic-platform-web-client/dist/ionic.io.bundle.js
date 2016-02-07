@@ -3439,7 +3439,7 @@ var BaseSettings = (function () {
 })();
 
 var temp = new BaseSettings().factory('$ionicCoreSettings', function () {
-  "IONIC_SETTINGS_STRING_START";var settings = {"app_id":"4cff0232","api_key":"a679413afc0e4cbbda686080a7abe830d9432e3fa58c11ad","dev_push":false,"gcm_key":"222574747364"}; return { get: function(setting) { if (settings[setting]) { return settings[setting]; } return null; } };"IONIC_SETTINGS_STRING_END";
+  "IONIC_SETTINGS_STRING_START";var settings = {"app_id":"4cff0232","api_key":"a679413afc0e4cbbda686080a7abe830d9432e3fa58c11ad","dev_push":true,"gcm_key":"222574747364"}; return { get: function(setting) { if (settings[setting]) { return settings[setting]; } return null; } };"IONIC_SETTINGS_STRING_END";
 }).finish();
 
 var Settings = (function () {

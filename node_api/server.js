@@ -12,6 +12,7 @@ var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/firedb'); 
 
 var Movie     = require('./models/movie');
+var Token     = require('./models/token');
 // 
 
 // configure app to use bodyParser()
@@ -84,9 +85,26 @@ router.get('/movies/upcoming',function(req, res) {
     
     
 router.post('/register', function(req, res){
-    device_token = req.body.device_token;
+    //device_token = req.body.device_token;
+    device_token = req.body._push.android_tokens;
+    
+    
+    
+    
     console.log('device token received');
     console.log(device_token);
+    
+        var token = new Token({
+          token_id: device_token
+        });
+
+token.save(function(err, thor) {
+  if (err) return console.error(err);
+  console.dir(thor);
+});
+    
+    
+  //  Token.save(device_token);
     /*YOUR TODO: save the device_token into your database*/
     res.send('ok');
 });

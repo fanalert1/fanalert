@@ -518,10 +518,15 @@ foreach($events as $document)
       $event_type=$json["movie_name"]." movie booking has been opened";
     }
     
+    //modifications for multiple notification stacking
+    
+    $notId=rand();
+    
     $data = array(
       "tokens" => $device_tokens,
-      "notification" => ["alert"=>$event_type]
+      "notification" => ["alert"=>$event_type,"android"=>["notId"=>$notId]]
         );
+        
     $data_string = json_encode($data);
     $ch = curl_init('https://push.ionic.io/api/v1/push');
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");

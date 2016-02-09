@@ -2,18 +2,33 @@
 
 
  angular.module('starter.services',[])
-    .service('RequestService', function(){
+    .factory('RequestService', function($http){
         
       //  this.registerDevice = function($http, $q, $ionicLoading)
      //   {
     
-        function hello()
+        function register(device_token)
         {
-        console.log("hello");
+         //console.log("hello");
+          var base_url = 'http://firefeed-androbala.c9users.io/api';
+         
+          $http.post(base_url + '/register', {'device_token': device_token})
+                .success(function(response){
+
+                    //$ionicLoading.hide();
+                    //deferred.resolve(response);
+                    
+                    console.log("registered:"+device_token);
+                })
+                .error(function(data){
+                    //deferred.reject();
+                    console.log(" registration failed");
+                });
+         
         }
         
         return {
-            register: hello
+            register: register
         };
         
         

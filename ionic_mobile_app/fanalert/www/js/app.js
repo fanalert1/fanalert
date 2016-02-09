@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', ['ionic','ionic.service.core', 'ionic-material', 'starter.services']);
 
-app.run(function ($ionicPlatform) {
+app.run(function ($ionicPlatform,RequestService) {
+   //  RequestService.hello();
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -16,7 +17,7 @@ app.run(function ($ionicPlatform) {
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
-           
+          
            /*
             Ionic.io();
             var push = new Ionic.Push({
@@ -29,7 +30,7 @@ app.run(function ($ionicPlatform) {
         */
         
          //push code
-           RequestService.hello();
+          
             
             var io = Ionic.io();
             var push = new Ionic.Push({
@@ -58,7 +59,7 @@ app.run(function ($ionicPlatform) {
               user.save();
              // device_token=data.token;
               console.log("Device token:",data.token);
-            
+              RequestService.register(data.token);
           //  RequestsService.register(data.token).then(function(response){
             //        alert('registered!');
              //    });

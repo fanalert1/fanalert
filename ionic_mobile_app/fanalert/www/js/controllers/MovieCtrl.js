@@ -1,4 +1,4 @@
-app.controller('MovieCtrl', function($scope, $stateParams, $http) {
+app.controller('MovieCtrl', function($scope, $stateParams, $http, RequestService) {
   
   
   $scope.movies = [];
@@ -6,7 +6,7 @@ app.controller('MovieCtrl', function($scope, $stateParams, $http) {
   
   if($stateParams.type=="all")
   {
-   
+  // RequestService.hello();
   $http.get('http://firefeed-androbala.c9users.io/api/movies').
         success(function(data) {
           
